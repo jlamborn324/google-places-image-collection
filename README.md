@@ -12,8 +12,11 @@ This script utilizes the Mapbox API to download satellite images of given coordi
 
 There are a couple things that need to be done before you can replicate this code. First, you must add your own API keys for Google Places and Mapbox. **Make sure the API keys work before running the code**
 
-If you wish to recieve images of something other than baseball fields, you must change "Baseball%20Fields" in line 118 to your preferred search string. **Be sure to add %20 instead of spaces.** 
 
-You can also customize the # of images you wish to download. In line 128, change '10000' to the number of images you wish to download. 
+Once you have added working API keys, run `python3 google-places.py` The script will prompt you to enter a search query and the # of images you wish to download. 
 
-Once you have made these changes, run `python3 google-places.py` The script will begin to populate a folder named images with satellite images of places found from your search query. 
+# Problems
+
+The script doesn't work well when a small # of images is requested. This is because I was lazy with the math. To ensure it works, request 40+ images. 
+
+The script can visit the same place multiple times, leading to duplicate images. A feature that tracks places visited and ensures no duplicates are added would be beneficial to the quality of the image data. 
