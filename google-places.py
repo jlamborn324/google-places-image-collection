@@ -4,8 +4,12 @@ import csv
 
 # Thanks to https://simplemaps.com/data/us-cities for the .csv of U.S. cities
 
-MAPBOX_API_KEY = ""  # INSERT YOUR API KEYS HERE
-GOOGLE_API_KEY = ""  # INSERT YOUR API KEYS HERE
+# MAPBOX_API_KEY = ""  # INSERT YOUR API KEYS HERE
+# GOOGLE_API_KEY = ""  # INSERT YOUR API KEYS HERE
+
+MAPBOX_API_KEY = ""
+GOOGLE_API_KEY = ""
+
 
 data_path = "preparsed-data.json"  # Location where each .json from the Places API will be downloaded. This will be replaced every time a new json is downloaded from
 # the Places API.
@@ -85,7 +89,7 @@ This function uses a .csv of U.S. cities in the United States to spread the API 
 """
 
 
-def driver(url, num_of_pictures):
+def driver(url, num_of_pictures, query):
 
     num_of_cities = 28500  # number of cities in uscities.csv
 
@@ -115,7 +119,7 @@ def driver(url, num_of_pictures):
                 tuple(row)
 
                 field_coords = coordsGrabber(
-                    "Baseball%20Fields", row[8], row[9], 50
+                    query, row[8], row[9], 50
                 )  # Call the coordsGrabber with the search string "Baseball Fields" and a radius of 50
                 imageGrabber(17, field_coords)
 
@@ -125,4 +129,17 @@ def driver(url, num_of_pictures):
                 continue
 
 
-driver("uscities.csv", 10000)
+query = input(
+    "Please enter your search query for satellite images (Example: Baseball fields): "
+)
+query = query.replace(" ", "%20")
+
+print(query)
+
+pics = input("Please enter the # of images you would like to download: ")
+
+if pics != input("Please reenter the # of images you would like to download: "):
+    print("These requests do not match")
+    exit(1)
+
+driver("uscities.csv", int(pics), query)
