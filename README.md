@@ -12,6 +12,8 @@ This script utilizes the Mapbox API to download satellite images of given coordi
 
 There are a couple things that need to be done before you can replicate this code. First, you must add your own API keys for Google Places and Mapbox. **Make sure the API keys work before running the code**
 
+Also, make a folder named 'images' in this directory. This is where the images will be downloaded. 
+
 
 Once you have added working API keys, run `python3 google-places.py` The script will prompt you to enter a search query and the # of images you wish to download. 
 
