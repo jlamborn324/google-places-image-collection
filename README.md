@@ -1,6 +1,6 @@
 # google-places-image-collection
 
-This repository contains a script to download a user-specified # of satellite images based on a search query. The use case in this repository is downloading 10,000 satellite images of baseball fields for the purpose of training a neural network. 
+This repository contains a script to download a user-specified # of satellite images of a given object/place. The use case in this repository is downloading 10,000 satellite images of baseball fields for the purpose of training a neural network. 
 
 # APIs
 
